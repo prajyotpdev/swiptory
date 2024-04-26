@@ -1,0 +1,23 @@
+.post_button {
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     padding: 10px 20px;
+     border-radius: 19px;
+     border: 0px ;
+     font-size: 16px;
+     font-weight: bold;
+     color: #fff; /* Initial color */
+     background-color: #FF7373; /* Initial background color */
+     cursor: pointer;
+     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+   }
+   
+   .post_button:hover {
+     background-color: #fac1c1; /* Hover color */
+   }
+   
+   .post_button:active {
+     background-color: #ff2525; /* Clicked/active color */
+   }
+   

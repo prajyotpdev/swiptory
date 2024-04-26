@@ -1,0 +1,105 @@
+[
+     {
+         "_id": "662a0a8bf29768e4694942fb",
+         "author": "Prajyot Pawar",
+         "slides": [
+             {
+                 "imageUrl": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
+                 "heading": "Slide 1 Heading",
+                 "description": "This is the description for slide 1.",
+                 "category": "food",
+                 "_id": "662a0a8bf29768e4694942fc"
+             },
+             {
+                 "imageUrl": "https://example.com/slide2.jpg",
+                 "heading": " Slide 2 Heading",
+                 "description": "This is the description for slide 2.",
+                 "category": "food",
+                 "_id": "662a0a8bf29768e4694942fd"
+             },
+             {
+                 "imageUrl": "https://example.com/slide3.jpg",
+                 "heading": "Slide 3 Heading",
+                 "description": "This is the description for slide 3.",
+                 "category": "food",
+                 "_id": "662a0a8bf29768e4694942fe"
+             }
+         ],
+         "likes": [],
+         "category": "food",
+         "createdAt": "2024-04-25T07:47:23.548Z",
+         "updatedAt": "2024-04-25T07:47:23.549Z",
+         "__v": 0
+     },
+     {
+         "_id": "662a77f687f8b19f84b3c364",
+         "author": "Prajyot Pawar",
+         "slides": [
+             {
+                 "imageUrl": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
+                 "heading": "Bowl1",
+                 "description": "This is the description for slide 1.",
+                 "category": "food",
+                 "_id": "662a77f687f8b19f84b3c365"
+             },
+             {
+                 "imageUrl": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
+                 "heading": " Bowl 2",
+                 "description": "This is the description for slide 2.",
+                 "category": "food",
+                 "_id": "662a77f687f8b19f84b3c366"
+             },
+             {
+                 "imageUrl": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
+                 "heading": "Bowl 3",
+                 "description": "This is the description for slide 3.",
+                 "category": "food",
+                 "_id": "662a77f687f8b19f84b3c367"
+             }
+         ],
+         "likes": [],
+         "category": "food",
+         "createdAt": "2024-04-25T15:34:14.053Z",
+         "updatedAt": "2024-04-25T15:34:14.053Z",
+         "__v": 0
+     },
+     {
+         "_id": "662a790287f8b19f84b3c371",
+         "author": "Sushant patil",
+         "slides": [
+             {
+                 "imageUrl": "https://plus.unsplash.com/premium_photo-1677343210638-5d3ce6ddbf85",
+                 "heading": "Mountain Valley",
+                 "description": "This is the description for slide 1.",
+                 "category": "travel",
+                 "_id": "662a790287f8b19f84b3c372"
+             },
+             {
+                 "imageUrl": "https://images.unsplash.com/photo-1500835556837-99ac94a94552",
+                 "heading": " AeroPlane Wings",
+                 "description": "This is the description for slide 2.",
+                 "category": "travel",
+                 "_id": "662a790287f8b19f84b3c373"
+             },
+             {
+                 "imageUrl": "https://plus.unsplash.com/premium_photo-1675484743423-57da4e8011c2",
+                 "heading": "Car Window",
+                 "description": "This is the description for slide 3.",
+                 "category": "travel",
+                 "_id": "662a790287f8b19f84b3c374"
+             },
+             {
+                 "imageUrl": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1",
+                 "heading": "Boat Ride",
+                 "description": "This is the description for slide 3.",
+                 "category": "travel",
+                 "_id": "662a790287f8b19f84b3c375"
+             }
+         ],
+         "likes": [],
+         "category": "travel",
+         "createdAt": "2024-04-25T15:38:42.318Z",
+         "updatedAt": "2024-04-25T15:38:42.318Z",
+         "__v": 0
+     }
+ ]

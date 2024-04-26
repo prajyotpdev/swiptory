@@ -1,0 +1,61 @@
+
+.tasksFeedContainer{
+     width: 410px;
+     height: 68vh;
+     overflow-y: auto;
+     padding: 1rem;
+ }
+ 
+ .feed {
+     display: flex;
+     flex-direction: column;
+     padding: 10px;
+     background-color: #EEF2F5;
+     border-radius: 10px;
+     align-items: center;
+     min-width: 312px;
+   }
+ 
+   .feedHeader{
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     padding: auto 10px;
+     height: 10vh;
+     width: 90%;
+     align-items: center;
+   }
+   .feedTitle{
+     font-size: large;
+     font-weight: 600;
+   }
+ 
+   .tasksFeedContainer::-webkit-scrollbar {
+     display: none;
+   }
+
+   .addTodo{
+    background-color: transparent;
+    border: transparent;
+    margin-left: auto ;
+    margin-right: 2em ;
+   }
+
+   
+.modalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalFooter {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}

@@ -1,0 +1,169 @@
+.topnavbar{
+     width: 80vw;
+     margin-left: auto;
+     margin-right: auto;
+     background-color: #ffffff;
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: space-between;
+} 
+.leftsection{
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.rightsection{
+  width:30%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  align-content: space-around;
+  justify-content: space-around;
+}
+.viewCartButton{
+  width: 130px;
+  display: flex;
+  flex-direction: row;
+  color:white;
+  font-family: "Roboto";
+  background-color: #1D7000;
+  cursor: pointer;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+}
+.viewCartButtonCount{
+  color:white;
+  font-family: "Roboto";
+  font-size: 1.8ch;
+}
+
+.profileButton{
+  width: 2ch;
+  height: 2ch;
+  display: flex;
+  flex-direction: row;
+  color:black;
+  font-family: "Roboto";
+  background-color:white;
+  cursor: pointer;
+  border:1px solid black;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+}
+.profileAbbreviation{
+  background-color:white;
+  cursor: pointer;position: absolute;
+}
+
+.profileOverlayModal{
+  position: relative;
+  top: 7ch;
+  right:20ch ;
+  min-width: 20ch;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 0.80rem;
+  display: flex;
+  flex-direction: column;
+  height:10ch;
+  padding: 6%;
+  font-family: "Roboto";
+  font-size: medium;
+  align-items: center;
+  align-content: space-between;
+  justify-content: space-around;
+  justify-items: flex-start;
+  border: 1px solid #2e2e2e;
+}
+.profileName{  
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  border-bottom: 1px solid #2e2e2e;
+}
+.logOut{  
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+}
+
+.topnavbar-title {
+     font-family: "Roboto";
+     background-color: transparent; 
+     display: flex;
+     font-size: x-large;
+     display: flex;
+     align-items: center;
+     font-weight: bold;
+     border: transparent;
+     justify-content: center;
+     justify-items: center;
+   }
+   .topnavbar-title>img{
+     height: 1.5em;
+     width: 1.5em;
+     margin-left: 5%;
+     margin-right: 5%;
+   }
+   
+.topnavbar-item {
+     padding-left: 30px;
+     cursor: pointer;
+     transition: background-color 0.3s;
+     font-family: "Roboto";
+     background-color: transparent; 
+     float: left;
+     height: 7vh;
+     font-size: 14px;
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: center;
+     align-content: center;
+     column-gap: 1ch;
+     color: #707070;
+     border: transparent;
+   }
+   
+   
+   .topnavbar-item.active {
+     color: #000000;
+     font-family: "Roboto";
+     font-size: 16px;
+   }
+
+   .topnavbar> button{
+     border: transparent;   
+     width: 100%;
+     font-family: "Roboto";
+   }
+   
+.topnavbar-signout {
+     padding: 10px;
+     height: 8vh;
+     font-family: "Roboto";
+     background-color: transparent; 
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: center;
+     column-gap: 10px;
+     font-size: 18px;
+     font-weight: 500;
+     color: #ff0000;
+     border: transparent;
+   }
