@@ -1,36 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styles from "./StoryOverlay.module.css";
+import styles from "./StoryOverlayContent.module.css";
 import prevButton from "../../../../assets/icons/prevButton.svg";
 import bookMarkIcon from "../../../../assets/icons/bookMarkIcon.svg";
 import likeIcon from "../../../../assets/icons/likeIcon.svg";
 
-const StoryOverlay = ({ story, onClose }) => {
+const StoryOverlayContent = ({story }) => {
   const dispatch = useDispatch();
   const isLoading = useSelector((state) => state.feed.isLoading);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselRef = useRef(null);
 
-  const handleClickOutside = (event) => {
-    const isButton = event.target.closest(
-      ".image-carousel-prev, .image-carousel-next"
-    );
-    if (
-      !isButton &&
-      carouselRef.current &&
-      !carouselRef.current.contains(event.target)
-    ) {
-      onClose();
-    }
-  };
-
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [onClose, carouselRef]);
+  }, [ carouselRef]);
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) =>
@@ -45,7 +28,6 @@ const StoryOverlay = ({ story, onClose }) => {
   };
 
   return (
-    <div className={styles["story-overlay"]}>
       <div className={styles["image-carousel"]} ref={carouselRef}>
         <ul className={styles["image-carousel-list"]}>
           {story.slides.map((slide, index) => (
@@ -81,8 +63,7 @@ const StoryOverlay = ({ story, onClose }) => {
           <img src={prevButton} alt="" width={"40px"} />
         </div>
       </div>
-    </div>
   );
 };
 
-export default StoryOverlay;
+export default StoryOverlayContent;

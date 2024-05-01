@@ -7,6 +7,9 @@ import FilterBar from "./components/filterBar/FilterBar.jsx";
 import StoryComponent from "./components/itemGrid/storyComponent.jsx";
 import dummyDataJSON from "../../assets/json/dummy-api-data.json";
 import { convertStoriesToModels } from "../../utils/dataconverter.jsx";
+import StoryOverlay from "./components/story-overlay/StoryOverlay.jsx";
+import OverlayComponent from "../../components/overlay/OverlayComponent.jsx";
+import StoryOverlayContent from "./components/story-overlay-content/StoryOverlayContent.jsx";
 
 const DashBoardpage = () => {
   const dispatch = useDispatch();
@@ -16,6 +19,13 @@ const DashBoardpage = () => {
   const isLoading = useSelector((state) => state.feed.isLoading);
 
   const [storiesFeed, setStoriesFeed] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOpen = () => setIsOpen(true);
+  const handleClose = () => setIsOpen(false);
+
+  const [isStoryPopup, setIsStoryPopup] = useState(false);
+  const [selectedStory, setSelectedStory] = useState(null);
   // useEffect(() => {
   //   handleGetAllData();
   // });
@@ -73,19 +83,53 @@ const DashBoardpage = () => {
       console.error("Error fetching feed:", error);
     }
   };
+
+  const handleStoryPopup = (story) => {
+    setSelectedStory(story);
+    setIsStoryPopup(true);
+    console.log("popup is showing");
+    handleOpen;
+  };
+
+  const handleStoryClosePopup = () => {
+    setIsStoryPopup(false);
+    setSelectedStory(null);
+  };
+
   return (
     <>
+      {selectedStory && <StoryOverlay story={selectedStory} />}
       <div className={styles.dashboardPage}>
         <div className={styles.dashboardHeroContainer}>
+          {isOpen && (
+            <OverlayComponent isOpen={isOpen} onClose={handleClose}>
+              <p>This is some content withasdasdin the overlay.</p>
+            </OverlayComponent>
+          )}
           {/* <FilterBar updateFeed={handleUpdateFeed} /> */}
           {isLoading && !storiesFeed && <div>..Loading</div>}
           <div className={styles.storycards}>
             {storiesFeed &&
               storiesFeed.map((story) => (
-                <StoryComponent story={story}>
+                <StoryComponent
+                  key={story._id}
+                  story={story}
+                  onClick={() => handleStoryPopup(story)}
+                >
                   <div key={story._id}></div>
                 </StoryComponent>
               ))}
+            {isOpen && selectedStory && (
+              <OverlayComponent isOpen={isOpen} onClose={handleClose}>
+                <StoryOverlayContent story={selectedStory} />
+              </OverlayComponent>
+            )}
+            {/* {isStoryPopup && selectedStory && (
+              <StoryOverlay
+                story={selectedStory}
+                onClose={handleStoryClosePopup}
+              />
+            )} */}
           </div>
         </div>
       </div>

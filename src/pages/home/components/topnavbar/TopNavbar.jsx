@@ -12,16 +12,15 @@ import PostButtonRed from "../../../../components/buttons/post-button-red/PostBu
 import defaultUserPicture from "../../../../assets/images/profile_default.png";
 import hamburgerMenu from "../../../../assets/icons/hamburgerMenu.svg";
 
-const TopNavbar = ({ onSectionChange, currentsection }) => {
+const TopNavbar = ({ onSectionChange, currentsection, onCreateStoryPopup }) => {
   const handleClick = (section) => {
     onSectionChange(section);
   };
+  const navigate = useNavigate();
 
   const handleProfileOptions = () => {
     setIsProfileSectionOpened(!isProfileSectionOpened);
   };
-
-  const navigate = useNavigate();
 
   const logout = () => {
     localStorage.removeItem("user");
@@ -37,12 +36,12 @@ const TopNavbar = ({ onSectionChange, currentsection }) => {
     let path = `signin`;
     navigate("/swiptory/signin");
   };
-  const gotoAddStory = () => {
-    let path = `signin`;
-    navigate("/swiptory/signin");
+  const gotoAddStory = () => {};
+  const gotoBookmark = () => {
+    handleClick("bookmark");
   };
 
-  const userName = useSelector((state) => state.user.user).name;
+  const userName = useSelector((state) => state.user?.user?.name || "");
   const cartItems = 0;
   const dispatch = useDispatch();
   const musicItemsFeed = useSelector(
@@ -93,7 +92,7 @@ const TopNavbar = ({ onSectionChange, currentsection }) => {
           </>
         ) : (
           <>
-            <PostButtonRed handleClick={gotoAddStory}>Bookmarks</PostButtonRed>
+            <PostButtonRed handleClick={gotoBookmark}>Bookmarks</PostButtonRed>
             <PostButtonRed handleClick={gotoAddStory}>Add Story</PostButtonRed>
 
             <div className={styles.profileButton}>

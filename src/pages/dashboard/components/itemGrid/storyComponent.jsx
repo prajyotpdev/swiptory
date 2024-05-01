@@ -7,18 +7,14 @@ import { addCartItem } from "../../../../store/slices/cartSlice";
 import Loader from "../../../../components/loader/loader";
 import { useState } from "react";
 
-function StoryComponent({ story }) {
+function StoryComponent({ story, onClick }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const firstSlide = story.slides[0];
   const [loading, setLoading] = useState(true);
 
-  const handleClick = () => {
-    onShowOverlay(story);
-  };
-
   return (
-    <div className={styles.storyCard} onClick={handleClick}>
+    <div className={styles.storyCard} onClick={() => onClick(story)}>
       <div style={{ display: loading ? "block" : "none" }}>
         <Loader />
       </div>
