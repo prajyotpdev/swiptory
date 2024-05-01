@@ -1,16 +1,18 @@
 {
-     "version": 2,
-     "builds": [
-       {
-         "src": "index.js",
-         "use": "@vercel/node" 
-       }
-     ],
-     "routes": [
-       {
-         "src": "/(.*)",
-         "dest": "server.js"
-       }
-     ]
-   }
-   
+  "version": 3,
+  "builds": [
+    {
+      "src": "src/main.js",
+      "use": "@vercel/build",
+      "config": {
+        "buildCommand": "npm run build"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html" 
+    }
+  ]
+}
