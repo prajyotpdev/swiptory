@@ -4,7 +4,7 @@ const jwtVerify = require("../middleware/authMiddleware");
 // const MusicArtItem = require("../models/musicArtItem");
 const userModel = require("../models/user");
 const { ObjectId } = require("mongodb");
-const musicArtItem = require("../models/musicArtItem");
+// const musicArtItem = require("../models/musicArtItem");
 const cartItem = require("../models/cartItem");
 
 

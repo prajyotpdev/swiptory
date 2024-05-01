@@ -2,16 +2,17 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { jwtDecode } from 'jwt-decode';
 import { useSelector } from 'react-redux';
 
-export const addMusicArtItem = createAsyncThunk("addMusicArtItem", async (musicItemData) => {
+export const addStory = createAsyncThunk("addStory", async (storyData) => {
   const baseUrl = import.meta.env.VITE_API_BASE_URL;
   const jwttoken = JSON.parse(localStorage.getItem("user")).token;
-    const response = await fetch(`${baseUrl}/api/v1/musicartitem/all`,{
+  console.log("this is jwt token: "+ jwttoken);
+    const response = await fetch(`${baseUrl}/api/v1/stories/add`,{
       method: 'POST',
       headers : {
         Authorization: jwttoken,      
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(musicItemData),
+      body: JSON.stringify(storyData),
     });
     return response.json();
   });
@@ -19,7 +20,7 @@ export const addMusicArtItem = createAsyncThunk("addMusicArtItem", async (musicI
 export const fetchAllItems= createAsyncThunk("fetchAllItems", async () => {
   const baseUrl = import.meta.env.VITE_API_BASE_URL;
   const jwttoken = JSON.parse(localStorage.getItem("user")).token;
-  const response = await fetch(`${baseUrl}/api/v1/musicartitem/all`,{
+  const response = await fetch(`${baseUrl}/api/v1/stories/all`,{
     headers : {
       Authorization: jwttoken,      
       'Content-Type': 'application/json',
@@ -29,10 +30,10 @@ export const fetchAllItems= createAsyncThunk("fetchAllItems", async () => {
 });
 
 
-  export const filterMusicItems = createAsyncThunk("filterMusicItems", async (filterParams) => {
+  export const filterstorys = createAsyncThunk("filterstorys", async (filterParams) => {
     const baseUrl = import.meta.env.VITE_API_BASE_URL;
   const jwttoken = JSON.parse(localStorage.getItem("user")).token;
-    const response = await fetch(`${baseUrl}/api/v1/musicartitem/filter`,{                  
+    const response = await fetch(`${baseUrl}/api/v1/Story/filter`,{                  
       headers : {
         Authorization: jwttoken,      
         'Content-Type': 'application/json',
@@ -43,8 +44,8 @@ export const fetchAllItems= createAsyncThunk("fetchAllItems", async () => {
     return response.json();
   });
 
-const feedListSlice = createSlice({
-  name: "feed",
+const storyListSlice = createSlice({
+  name: "story",
   initialState: {
     isLoading: false,
     data: null,
@@ -56,34 +57,34 @@ const feedListSlice = createSlice({
     });
     builder.addCase(fetchAllItems.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.feed = action.payload;
-      console.log("this is action.payload " + action.payload)
+      state.story = action.payload;
+      console.log("this is action.payload " + JSON.stringify(action.payload))
     });
     builder.addCase(fetchAllItems.rejected, (state, action) => {
       console.log("Error", action.payload);
       state.isError = true;
     });
-    builder.addCase(addMusicArtItem.pending, (state) => {
+    builder.addCase(addStory.pending, (state) => {
       state.isLoading = true;
     });
-    builder.addCase(addMusicArtItem.fulfilled, (state, action) => {
+    builder.addCase(addStory.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.feed = action.payload;
-      console.log("this is action.payload " + action.payload)
+      state.story = action.payload;
+      console.log("this is action.payload " + JSON.stringify(action.payload))
     });
-    builder.addCase(addMusicArtItem.rejected, (state, action) => {
+    builder.addCase(addStory.rejected, (state, action) => {
       console.error('Error creating task:', action.error.message);
       state.isLoading = false;
       state.isError = true;
     });
-    builder.addCase(filterMusicItems.pending, (state) => {
+    builder.addCase(filterstorys.pending, (state) => {
       state.isLoading = true;
     });
-    builder.addCase(filterMusicItems.fulfilled, (state, action) => {
+    builder.addCase(filterstorys.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.feed = action.payload;
+      state.story = action.payload;
     });
-    builder.addCase(filterMusicItems.rejected, (state, action) => {
+    builder.addCase(filterstorys.rejected, (state, action) => {
       console.error('Error fetchTaskByStatus:', action.error.message);
       state.isLoading = false;
       state.isError = true;
@@ -91,4 +92,4 @@ const feedListSlice = createSlice({
   },
 });
 
-   export default feedListSlice.reducer;
+   export default storyListSlice.reducer;

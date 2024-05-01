@@ -5,7 +5,7 @@ const app = express()
 const MongoClient = require('mongodb').MongoClient
 const mongoose = require('mongoose')
 const authRoutes = require('./src/routes/auth')
-const musicArtItemRoutes= require('./src/routes/musicArtItems')
+// const musicArtItemRoutes= require('./src/routes/musicArtItems')
 const profileRoutes= require('./src/routes/userprofile')
 const storyRoutes= require('./src/routes/stories')
 
@@ -17,7 +17,7 @@ require('dotenv').config()
 const port = process.env.PORT
 
 app.use("/api/v1/auth", authRoutes);
-app.use("/api/v1/musicartitem", musicArtItemRoutes);
+// app.use("/api/v1/musicartitem", musicArtItemRoutes);
 app.use("/api/v1/profile", profileRoutes);
 app.use("/api/v1/stories", storyRoutes);
 
@@ -27,7 +27,7 @@ app.post("/", (req, res)=>{
 })
 app.get("/", (req, res)=>{
     res.json({
-        server: "MusicArtApp server",
+        server: "SwipTory server",
     });
 })
 

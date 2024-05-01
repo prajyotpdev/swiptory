@@ -10,11 +10,12 @@ const slideSchema = new mongoose.Schema({
 
    
 const storySchema  = new mongoose.Schema({
-     author: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true 
+     author: { type: String,  required: true 
     },
     slides: [slideSchema],
-    likes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
-    category: { type: String, required: true, enum: ['food', 'health and fitness', 'travel', 'movie', 'education'] },
+    likes: [{ type: String,  ref: 'User' }],
+//     category: { type: String, required: true, enum: ['food', 'health and fitness', 'travel', 'movie', 'education'] },
+    category: { type: String, required: true },
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now }
 });

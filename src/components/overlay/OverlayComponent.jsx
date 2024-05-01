@@ -40,7 +40,13 @@ const OverlayComponent = ({ children, onClose, isOpen, isLoading = false }) => {
           {/* Your loading indicator component or JSX here */}
         </div>
       )}
-      {children}
+
+      <div // Wrap children in a separate container
+        className={styles.overlayContent}
+        onClick={(event) => event.stopPropagation()} // Prevent bubbling to overlay
+      >
+        {children}
+      </div>
     </div>
   );
 };

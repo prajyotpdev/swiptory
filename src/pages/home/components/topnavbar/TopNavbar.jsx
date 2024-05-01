@@ -11,12 +11,18 @@ import { useDispatch, useSelector } from "react-redux";
 import PostButtonRed from "../../../../components/buttons/post-button-red/PostButtonRed";
 import defaultUserPicture from "../../../../assets/images/profile_default.png";
 import hamburgerMenu from "../../../../assets/icons/hamburgerMenu.svg";
+import OverlayComponent from "../../../../components/overlay/OverlayComponent";
+import AddStoryCard from "../add_story_card/AddStoryCard";
 
 const TopNavbar = ({ onSectionChange, currentsection, onCreateStoryPopup }) => {
+  const [isOpen, setIsOpen] = useState(false);
   const handleClick = (section) => {
     onSectionChange(section);
   };
   const navigate = useNavigate();
+
+  const handleOpen = () => setIsOpen(true);
+  const handleClose = () => setIsOpen(false);
 
   const handleProfileOptions = () => {
     setIsProfileSectionOpened(!isProfileSectionOpened);
@@ -36,7 +42,9 @@ const TopNavbar = ({ onSectionChange, currentsection, onCreateStoryPopup }) => {
     let path = `signin`;
     navigate("/swiptory/signin");
   };
-  const gotoAddStory = () => {};
+  const gotoAddStory = () => {
+    handleOpen();
+  };
   const gotoBookmark = () => {
     handleClick("bookmark");
   };
@@ -106,6 +114,11 @@ const TopNavbar = ({ onSectionChange, currentsection, onCreateStoryPopup }) => {
                 {/* {userName.split(" ").map((x) => x[0])} */}
               </div>
             </div>
+            {isOpen && (
+              <OverlayComponent isOpen={isOpen} onClose={handleClose}>
+                <AddStoryCard />
+              </OverlayComponent>
+            )}
             <div
               className={styles.profileButton}
               onClick={() => handleProfileOptions()}

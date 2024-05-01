@@ -2,6 +2,7 @@ import Slide from "../store/models/slide";
 import Story from "../store/models/story";
 
 export function convertStoriesToModels(data) {
+  console.log("Its data " + data);
   return data.map((storyData) => {
     const newStory = new Story({
       id: storyData._id,

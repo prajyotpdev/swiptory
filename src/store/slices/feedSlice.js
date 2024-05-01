@@ -18,11 +18,11 @@ export const addMusicArtItem = createAsyncThunk("addMusicArtItem", async (musicI
 
 export const fetchAllItems= createAsyncThunk("fetchAllItems", async () => {
   const baseUrl = import.meta.env.VITE_API_BASE_URL;
-  const jwttoken = JSON.parse(localStorage.getItem("user")).token;
-  const response = await fetch(`${baseUrl}/api/v1/musicartitem/all`,{
+  // const jwttoken = JSON.parse(localStorage.getItem("user")).token;
+  const response = await fetch(`${baseUrl}/api/v1/stories/all`,{
     headers : {
-      Authorization: jwttoken,      
-      'Content-Type': 'application/json',
+      // Authorization: jwttoken,      
+      'Content-Type': 'application/json',  
     },
   });
   return response.json();

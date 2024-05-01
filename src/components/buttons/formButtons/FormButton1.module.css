@@ -1,0 +1,16 @@
+.form_button {
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     padding: 10px 20px;
+     border-radius: 19px;
+     width: 100%;
+     border: 0px ;
+     font-size: 16px;
+     font-weight: bold;
+     color: #fff; 
+     cursor: pointer;
+     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+   }
+   
+   

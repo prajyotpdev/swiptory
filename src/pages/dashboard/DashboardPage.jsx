@@ -9,16 +9,13 @@ import dummyDataJSON from "../../assets/json/dummy-api-data.json";
 import { convertStoriesToModels } from "../../utils/dataconverter.jsx";
 import StoryOverlay from "./components/story-overlay/StoryOverlay.jsx";
 import OverlayComponent from "../../components/overlay/OverlayComponent.jsx";
-import StoryOverlayContent from "./components/story-overlay-content/StoryOverlayContent.jsx";
 
 const DashBoardpage = () => {
   const dispatch = useDispatch();
-  // const storiesFeed = useSelector(
-  //   (state) => state.feed && state.feed.feed && state.feed.feed.data
-  // );
+  const storiesFeedState = useSelector((state) => state.feed.feed);
   const isLoading = useSelector((state) => state.feed.isLoading);
 
-  const [storiesFeed, setStoriesFeed] = useState([]);
+  const [storiesFeed, setStoriesFeed] = useState(storiesFeedState);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = () => setIsOpen(true);
@@ -31,20 +28,11 @@ const DashBoardpage = () => {
   // });
 
   useEffect(() => {
-    const fetchData = async () => {
-      const jsonData = dummyDataJSON;
-      const convertedStories = convertStoriesToModels(jsonData);
-      console.log(convertedStories);
-      setStoriesFeed(convertedStories);
-    };
+    dispatch(fetchAllItems());
 
-    fetchData();
-  }, []);
-  useEffect(() => {
-    // Dispatch fetchAllItems action when component mounts
-    //   dispatch(
-    //     fetchAllItems()
-    // );
+    // const convertedStories = convertStoriesToModels(storiesFeedState);
+    // console.log(convertedStories);
+    // setStoriesFeed(convertedStories);
   }, [dispatch]);
   const handleGetAllData = async (e) => {
     // dispatch(fetchAllItems());
@@ -88,7 +76,6 @@ const DashBoardpage = () => {
     setSelectedStory(story);
     setIsStoryPopup(true);
     console.log("popup is showing");
-    handleOpen;
   };
 
   const handleStoryClosePopup = () => {
@@ -101,36 +88,34 @@ const DashBoardpage = () => {
       {selectedStory && <StoryOverlay story={selectedStory} />}
       <div className={styles.dashboardPage}>
         <div className={styles.dashboardHeroContainer}>
-          {isOpen && (
+          {/* {isOpen && (
             <OverlayComponent isOpen={isOpen} onClose={handleClose}>
               <p>This is some content withasdasdin the overlay.</p>
             </OverlayComponent>
-          )}
+          )} */}
           {/* <FilterBar updateFeed={handleUpdateFeed} /> */}
           {isLoading && !storiesFeed && <div>..Loading</div>}
-          <div className={styles.storycards}>
-            {storiesFeed &&
-              storiesFeed.map((story) => (
-                <StoryComponent
-                  key={story._id}
-                  story={story}
-                  onClick={() => handleStoryPopup(story)}
-                >
-                  <div key={story._id}></div>
-                </StoryComponent>
-              ))}
-            {isOpen && selectedStory && (
-              <OverlayComponent isOpen={isOpen} onClose={handleClose}>
-                <StoryOverlayContent story={selectedStory} />
-              </OverlayComponent>
-            )}
-            {/* {isStoryPopup && selectedStory && (
-              <StoryOverlay
-                story={selectedStory}
-                onClose={handleStoryClosePopup}
-              />
-            )} */}
-          </div>
+          {storiesFeedState && (
+            <div className={styles.storycards}>
+              {storiesFeedState &&
+                storiesFeedState.map((story) => (
+                  <StoryComponent
+                    key={story._id}
+                    story={story}
+                    onClick={() => handleStoryPopup(story)}
+                  >
+                    <div key={story._id}></div>
+                  </StoryComponent>
+                ))}
+
+              {isStoryPopup && selectedStory && (
+                <StoryOverlay
+                  story={selectedStory}
+                  onClose={handleStoryClosePopup}
+                />
+              )}
+            </div>
+          )}
         </div>
       </div>
     </>

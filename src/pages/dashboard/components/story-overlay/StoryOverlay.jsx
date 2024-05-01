@@ -61,7 +61,7 @@ const StoryOverlay = ({ story, onClose }) => {
                   <p className={styles.header}>{slide.heading}</p>
                   <p className={styles.description}>{slide.description}</p>
                   <div className={styles.interactionTab}>
-                    <div className={styles.bookMarkBtn} >
+                    <div className={styles.bookMarkBtn}>
                       <img src={bookMarkIcon} alt="" />
                     </div>
                     <div className={styles.likeBtn}>
