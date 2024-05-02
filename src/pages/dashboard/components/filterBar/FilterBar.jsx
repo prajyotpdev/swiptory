@@ -1,7 +1,7 @@
 import styles from "./filterbarComponent.module.css";
 import img1 from "../../../../assets/images/img1.png";
 import { useDispatch } from "react-redux";
-import { filterMusicItems } from "../../../../store/slices/feedSlice";
+import { filterStories } from "../../../../store/slices/feedSlice";
 import { useState } from "react";
 
 function FilterBar({ updateFeed }) {
@@ -49,7 +49,7 @@ function FilterBar({ updateFeed }) {
         })
       );
       const requestBody = JSON.stringify(filterParams);
-      dispatch(filterMusicItems(requestBody));
+      dispatch(filterStories(requestBody));
     } catch (error) {
       console.error("Error fetching filtered items:", error);
     }
@@ -88,8 +88,12 @@ function FilterBar({ updateFeed }) {
         <option value="4000">3000 - 4000</option>
         <option value="5000">more than 4000</option>
       </select>
-      <button onClick={handleFilter} className={styles.filterbutton}>Filter</button>
-      <button onClick={clearFilter} className={styles.clearfilterbutton}>Clear Filters</button>
+      <button onClick={handleFilter} className={styles.filterbutton}>
+        Filter
+      </button>
+      <button onClick={clearFilter} className={styles.clearfilterbutton}>
+        Clear Filters
+      </button>
     </div>
   );
 }
