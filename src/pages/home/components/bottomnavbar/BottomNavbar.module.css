@@ -11,7 +11,7 @@
 
 .bottomnavbar-title {
      padding: 10px;
-     font-family: "Roboto";
+     
      background-color: transparent; 
      float: left;
      display: flex;
@@ -36,7 +36,6 @@
      padding: 10px;
      cursor: pointer;
      transition: background-color 0.3s;
-     font-family: "Roboto";
      background-color: transparent; 
      float: left;
      height: 8vh;
@@ -54,26 +53,26 @@
    
    .bottomnavbar-item:hover {
      background-color: #95c7ff;
-     font-family: "Roboto";
+     
      fill: #111;
    }
    
    .bottomnavbar-item.active {
      background-color: #4391ED1A; 
      color: #000000;
-     font-family: "Roboto";
+     
      font-size: 18px;
    }
 
    .bottomnavbar> button{
      border: transparent;   
      width: 100%;
-     font-family: "Roboto";
+     
    }
    
 .bottomnavbar-signout {
      padding: 10px;
-     font-family: "Roboto";
+     
      background-color: transparent; 
      float: left;
      display: flex;

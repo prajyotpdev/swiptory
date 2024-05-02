@@ -29,12 +29,24 @@ export const fetchAllItems= createAsyncThunk("fetchAllItems", async () => {
 });
 
 
-  export const filterMusicItems = createAsyncThunk("filterMusicItems", async (filterParams) => {
+  export const filterStories = createAsyncThunk("filterStories", async (filterParams) => {
     const baseUrl = import.meta.env.VITE_API_BASE_URL;
-  const jwttoken = JSON.parse(localStorage.getItem("user")).token;
-    const response = await fetch(`${baseUrl}/api/v1/musicartitem/filter`,{                  
+  // const jwttoken = JSON.parse(localStorage.getItem("user")).token;
+    const response = await fetch(`${baseUrl}/api/v1/stories/filter`,{                  
       headers : {
-        Authorization: jwttoken,      
+        // Authorization: jwttoken,      
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body:filterParams,
+    });
+    return response.json();
+  });
+
+  export const getTopStories = createAsyncThunk("getTopStories", async (filterParams) => {
+    const baseUrl = import.meta.env.VITE_API_BASE_URL;
+    const response = await fetch(`${baseUrl}/api/v1/stories/top`,{                  
+      headers : {  
         'Content-Type': 'application/json',
       },
       method: 'POST',
@@ -76,14 +88,26 @@ const feedListSlice = createSlice({
       state.isLoading = false;
       state.isError = true;
     });
-    builder.addCase(filterMusicItems.pending, (state) => {
+    builder.addCase(filterStories.pending, (state) => {
       state.isLoading = true;
     });
-    builder.addCase(filterMusicItems.fulfilled, (state, action) => {
+    builder.addCase(filterStories.fulfilled, (state, action) => {
       state.isLoading = false;
       state.feed = action.payload;
     });
-    builder.addCase(filterMusicItems.rejected, (state, action) => {
+    builder.addCase(filterStories.rejected, (state, action) => {
+      console.error('Error fetchTaskByStatus:', action.error.message);
+      state.isLoading = false;
+      state.isError = true;
+    });
+    builder.addCase(getTopStories.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(getTopStories.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.feed = action.payload;
+    });
+    builder.addCase(getTopStories.rejected, (state, action) => {
       console.error('Error fetchTaskByStatus:', action.error.message);
       state.isLoading = false;
       state.isError = true;

@@ -1,18 +1,23 @@
 .topnavbar{
      width: 100vw;
+     height: 4rem;
      background-color: white;
      display: flex;
      flex-direction: row;
      align-items: center;
      justify-content: space-between;
      box-shadow: 2px 2px 10px 2px #00000026;
+     font-family: "DM Sans";
 } 
 .leftsection{
   width: 60%;
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding-left: 1em;
+  font: "DM Sans"
 }
+
 
 .rightsection{
   width: 40%;
@@ -28,7 +33,7 @@
   display: flex;
   flex-direction: row;
   color:white;
-  font-family: "Roboto";
+  font-family: "DM Sans";
   background-color: #1D7000;
   cursor: pointer;
   border-radius: 20px;
@@ -38,7 +43,7 @@
 }
 .viewCartButtonCount{
   color:white;
-  font-family: "Roboto";
+  
   font-size: 1.8ch;
 }
 
@@ -48,7 +53,7 @@
   display: flex;
   flex-direction: row;
   color:black;
-  font-family: "Roboto";
+  
   background-color:white;
   cursor: pointer;
   border-radius: 50%;
@@ -72,7 +77,7 @@
   flex-direction: column;
   height:10ch;
   padding: 6%;
-  font-family: "Roboto";
+  
   font-size: medium;
   align-items: center;
   align-content: space-between;
@@ -101,7 +106,8 @@
 }
 
 .topnavbar-title {
-     font-family: "Roboto";
+  font-family: "DM Sans";
+     
      background-color: transparent; 
      display: flex;
      font-size: x-large;
@@ -121,7 +127,7 @@
      padding-left: 30px;
      cursor: pointer;
      transition: background-color 0.3s;
-     font-family: "Roboto";
+     
      background-color: transparent; 
      float: left;
      height: 7vh;
@@ -139,20 +145,20 @@
    
    .topnavbar-item.active {
      color: #000000;
-     font-family: "Roboto";
+     
      font-size: 16px;
    }
 
    .topnavbar> button{
      border: transparent;   
      width: 100%;
-     font-family: "Roboto";
+     
    }
    
 .topnavbar-signout {
      padding: 10px;
      height: 8vh;
-     font-family: "Roboto";
+     
      background-color: transparent; 
      display: flex;
      flex-direction: row;

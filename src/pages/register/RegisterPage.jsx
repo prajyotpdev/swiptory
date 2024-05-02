@@ -77,7 +77,8 @@ const RegisterPage = () => {
       <div className={styles.leftSide}>
         <button className={styles.logo}>
           <img src={MusicArtLogo} alt="logo" />
-          MusicArt
+          SwipTory
+          
         </button>
       </div>
       <div className={styles.rightSide}>

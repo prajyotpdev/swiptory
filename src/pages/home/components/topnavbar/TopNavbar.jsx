@@ -71,7 +71,7 @@ const TopNavbar = ({ onSectionChange, currentsection, onCreateStoryPopup }) => {
         >
           SwipTory
         </button>
-        <button
+        {/* <button
           onClick={() => handleClick("feed")}
           className={`${styles["topnavbar-item"]} ${
             currentsection === "feed" ? styles.active : ""
@@ -87,11 +87,11 @@ const TopNavbar = ({ onSectionChange, currentsection, onCreateStoryPopup }) => {
           style={{ fill: currentsection === "board" ? "blue" : "inherit" }}
         >
           Invoice
-        </button>
+        </button> */}
       </div>
 
       <div className={styles.rightsection}>
-        {userName == null ? (
+        {userName == null || userName == "" ? (
           <>
             <PostButtonRed handleClick={gotoSignUpPage}>
               Register Now

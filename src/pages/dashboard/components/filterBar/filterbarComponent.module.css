@@ -4,7 +4,6 @@ select {   appearance: none;
      padding: 0 1em 1em 0;
      margin: 0;
      width: 100%;
-     font-family: 'Roboto';
      font-family: inherit;
      font-size: inherit;
      cursor: inherit;
@@ -29,7 +28,7 @@ select {   appearance: none;
   display: flex;
   flex-direction: row;
   color:white;
-  font-family: "Roboto";
+  
   background-color: #1D7000;
   cursor: pointer;
   border-radius: 20px;
@@ -42,7 +41,7 @@ select {   appearance: none;
   display: flex;
   flex-direction: row;
   color:#1D7000;
-  font-family: "Roboto";
+  
   cursor: pointer;
   border-radius: 20px;
   align-items: center;
